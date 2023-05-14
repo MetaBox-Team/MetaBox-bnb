@@ -1,0 +1,34 @@
+name: 'Check build'
+description: This action performs a clean, non-Docker build of II, and optionally checks the Wasm module sha256 against the 'sha256' argument. Nothing is cached except for the bootstrap environment.
+inputs:
+  sha256:
+    description: The expected sha256 of the final Wasm module
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/bootstrap
+
+    # run the build
+    - run: npm ci
+      shell: bash
+    - run: ./scripts/build
+      shell: bash
+
+    # check the hash
+    - name: Check output hash
+      shell: bash
+      run: |
+        sha256=$(shasum -a 256 ./internet_identity.wasm | cut -d ' ' -f1)
+        echo got sha "$sha256"
+        if [ -n "${{ inputs.sha256 }}" ]
+        then
+          echo "checking build hash against ${{ inputs.sha256 }}"
+          if [ "$sha256" == "${{ inputs.sha256 }}" ]
+          then
+            echo output sha256 matches expected
+          else
+            echo "sha mismatch: '$sha256' /= '${{ inputs.sha256 }}'"
+            exit 1
+          fi
+        fi

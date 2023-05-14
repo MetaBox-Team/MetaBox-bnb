@@ -1,0 +1,1365 @@
+/*
+                                    _  _____  __    __   __
+                                   | |  | |  / /`  ( (` ( (`
+                                   |_|  |_|  \_\_, _)_) _)_)
+
+                                          `-.` '.-'
+                                       `-.    A   .-'.
+                                    `-.    -./_\.-    .-'
+                                        -.  /___\  .-
+                                    `-.   `/__|__\'   .-'.
+                                 `-.    -./.-"^"-.\.-      '
+                                    `-.  / <`(o)*> \  .-'
+                                 .-   .`/__`-...-'__\'   .-
+                                ,...`-./_/____|____\_\.-'.,.
+                                   ,-'    ,` . . ',   `-,
+                               _,-' /____/____.____\____\ `-,_
+                                       ,      |      .
+                                      /     ,.+.,     \
+
+   -<# ITCSS (Inverted Triangle CSS) -> (https://csswizardry.com/2018/11/itcss-and-skillshare/) #>-
+  __________________________________________________________________________________________________
+   \---------------------------/------------                          Generic CSS (Low specificity)
+    \                         /  I)   Settings (Design)                            Y
+     \-----------------------/----------------                                     |
+      \                     /    II)  Theme Settings                               |
+       \-------------------/--------------------                                   |
+        \                 /      III) Generic                                      |
+         \---------------/------------------------                                 |
+          \             /        IV)  Elements                                     |
+           \-----------/----------------------------                               |
+            \         /          V)   Objects                                      |
+             \-------/--------------------------------                             |
+              \     /            VI)  Components                                   |
+               \---/------------------------------------                           |
+                \ /              VII) Utilities (Trumps)                           V
+                 V                                                   Explicit CSS (High specificity)
+
+  I)   Settings:             Global variables, config switches.
+  II)  Theme Settings:       DarkMode, LightMode, Product Specific stuff
+  III) Generic:              Ground-zero styles (Normalize.css, resets, box-sizing).
+  IV)  Base:                 Un-classed HTML elements (type selectors).
+  V)   Objects:              Cosmetic-free design patterns (grids, layouts, etc).
+  VI)  Components:           Designed components, chunks of UI.
+  VII) Utilities/Trumps:     Helpers and overrides. (hidden, error classes, etc)
+
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/* I) Settings: Global variables, config switches. */
+
+:root {
+  /*
+   * value tokens
+   *
+   * raw basic values that should not be used within your components.
+   * they control the design system on a higher level and should be used only
+   * in the root element.
+   *
+   */
+
+  /* value tokens: colors (--vc => valueColor) */
+  --vc-raven: #202124;
+  --vc-snow: #ffffff;
+
+  --vc-vapour: rgba(255, 255, 255, 0.6);
+  --vc-shadow: rgba(32, 33, 36, 0.6);
+
+  --vc-silver: #d9d9d9;
+
+  --vc-brand-orange: #f15a24;
+  --vc-brand-yellow: #fbb03b;
+  --vc-brand-pink: #ed1e79;
+  --vc-brand-purple: #522785;
+  --vc-brand-blue: #29abe2;
+  --vc-brand-blue--dark: #1f6ef4;
+  --vc-brand-alt: rgba(215, 205, 235, 1);
+
+  /**
+   * value tokens: sizes (--vs => valueSize)
+   * 1) general purpose spacer unit
+   * 2) vertical spaces outside of an element
+   * 3) horizontal spaces outside of an element
+   * 4) space inside an element (usually used for padding)
+   * 5) borders and lines (using PX here because we don't want lines to scale)
+  **/
+  --vs-gutter: 0.5rem; /* 1 */
+  --vs-stack: calc(var(--vs-gutter) * 2); /* 2 */
+  --vs-inline: calc(var(--vs-gutter) * 2); /* 3 */
+  --vs-bezel: calc(var(--vs-gutter) * 2); /* 4 */
+  --vs-line: 1px; /* 5 */
+
+  /* value tokens: z-index (--vz => valueZindex) */
+
+  --vz-backdrop: -1;
+  --vz-background: 1;
+  --vz-foreground: 2;
+  --vz-tooltip: 10;
+  --vz-loader: 30;
+
+  /*
+   * reference tokens
+   *
+   * pointers to value tokens or other reference tokens. They control the actual
+   * design rules.
+   *
+   */
+
+  /* reference tokens: colors (--rc => referenceColor) */
+  --rc-dark: var(--vc-raven);
+  --rc-light: var(--vc-snow);
+
+  --rc-dark-transparent: var(--vc-shadow);
+  --rc-light-transparent: var(--vc-vapour);
+
+  --rc-text: var(--rc-dark);
+  --rc-text--disabled: var(--vc-shadow);
+
+  --rc-background: var(--rc-light);
+  --rc-background-transparent: var(--rc-light-transparent);
+
+  --rc-line: var(--vc-brand-alt);
+  --rc-line-inverted: var(--rc-dark);
+
+  --rc-interaction: var(--vc-brand-blue);
+  --rc-interaction-text: var(--vc-brand-blue--dark);
+
+  --rc-button: var(--vc-brand-purple);
+  --rc-button-secondary: rgba(215, 205, 235, 0.5);
+  --rc-onButton: var(--rc-light);
+
+  --rc-warning: var(--vc-brand-pink);
+  --rc-onWarning: var(--vc-snow);
+
+  --rc-input: var(--rc-light);
+  --rc-onInput: var(--rc-dark);
+
+  --rc-input-readonly: var(--vc-silver);
+  --rc-input-readonly: var(--vc-vapour);
+  --rc-input-onReadonly: var(--rc-dark);
+
+  /* reference tokens: gradients */
+  --rg-brand: var(--vc-brand-yellow) 10%, var(--vc-brand-orange) 40%,
+    var(--vc-brand-pink) 50%, var(--vc-brand-purple) 90%;
+
+  --rg-brand-alt: var(--vc-brand-alt), white;
+  --rg-brand-bruised: var(--vc-brand-blue) 50%, var(--vc-brand-purple) 90%;
+
+  /* reference tokens: sizes */
+  --rs-footer-stack: calc(var(--vs-stack) * 1.5);
+
+  --rs-footer-gutter: var(--vs-gutter);
+  --rs-logo-stack: calc(var(--vs-gutter) * 8);
+
+  --rs-card-bezel: calc(var(--vs-gutter) * 5);
+  --rs-card-bezel-x: calc(var(--vs-gutter) * 7);
+
+  --rs-card-stack: calc(var(--vs-stack) * 1.5);
+  --rs-card-bezel-narrow: calc(var(--rs-card-bezel) * 0.75);
+
+  --rs-button-bezel: var(--rs-card-bezel-narrow);
+  --rs-button-stack: var(--vs-stack);
+
+  --rs-input-bezel: calc(var(--rs-button-bezel) * 0.4);
+  --rs-input-bezel-narrow: calc(var(--rs-button-bezel) * 0.4);
+  --rs-input-stack: calc(var(--rs-button-stack) * 2);
+
+  --vs-line-height: 1.35;
+}
+
+/* II) Theme Settings: DarkMode, LightMode, Product Specific stuff */
+
+/***
+ * III) Generic: Ground-zero styles (Normalize.css, resets, box-sizing)
+ *
+ * The new CSS reset - version 1.7.2 (last updated 23.6.2022)
+ * GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+- The "symbol *" part is to solve Firefox SVG sprite bug
+*/
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+- fix for the content editable attribute will work properly.
+- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* (not included in vanilla reset) Hide carets in summary/details on Safari */
+
+::-webkit-details-marker {
+  display: none;
+}
+
+/**
+ * IV) Base: Un-classed HTML elements (type selectors)
+ *
+ * Internet Identity Styles
+ **/
+
+:root {
+  /* general styles */
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%; /* 10px */
+  font-size: max(62.5%, calc(0.6vh + 0.25rem));
+
+  background: var(--rc-background);
+  color: var(--rc-text);
+}
+
+/**
+ * Make sure the backdrop doesn't leak out (which creates a horizontal scroll)
+ **/
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: var(--vs-line-height);
+  background: radial-gradient(circle at 50% 100%, var(--rg-brand-alt));
+  background-size: 100% 100%;
+  min-height: 100vh;
+}
+
+/**
+ * V) Objects: Cosmetic-free design patterns
+ *
+ * We generally use the BEM methodology.
+ * http://getbem.com/
+ *
+ * We prefix classes with the following convention:
+ * - `.c-` component
+ * - `.l-` layout
+ * - `.t-` typography
+ *
+ * We avoid element, id and attribute selectors when it is sane to do so¹.
+ * Use classes when possible.
+ *
+ * ¹ For example when needing to style the paths of an SVG it might be difficult
+ * to do because the SVG are made by people with little to no XML know-how.
+ */
+
+.t-strong {
+  font-weight: bold;
+}
+
+.t-weak {
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+.t-centered {
+  text-align: center;
+}
+
+.t-title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  margin-top: 1em;
+}
+
+.t-title:first-child {
+  margin-top: 0;
+}
+
+.t-title--complications {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.t-title__complication {
+  font-weight: 300;
+  font-size: 0.8em;
+  flex-grow: 1;
+}
+
+.t-title__complication:disabled {
+  color: var(--rc-text--disabled);
+}
+
+.t-title__complication--end {
+  flex-grow: 0;
+  text-align: right;
+}
+
+.t-title--main {
+  font-size: 2.8rem;
+  margin-top: 0.5em;
+}
+
+.t-lead {
+  font-size: 1.6rem;
+}
+
+.t-title + .t-lead {
+  margin-top: 0.75em;
+}
+
+.t-paragraph {
+  margin-top: 1em;
+}
+
+.t-paragraph:first-child {
+  margin-top: 0;
+}
+
+.t-vip {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.t-vip--small {
+  font-size: 1.5rem;
+}
+
+.t-discreet {
+  font-size: 0.8em;
+}
+
+a,
+.t-link {
+  display: inline;
+  color: var(--rc-interaction-text);
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.t-link:disabled,
+:disabled .t-link {
+  pointer-events: none;
+}
+
+.t-link--discreet {
+  font-weight: normal;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+.t-link:not([disabled]):focus,
+.t-link:not([disabled]):hover {
+  text-decoration: none;
+}
+
+.t-link--discreet:not([disabled]):focus,
+.t-link--discreet:not([disabled]):hover {
+  text-decoration: underline;
+}
+
+.t-link__icon {
+  display: inline-block;
+  position: relative;
+  height: calc(1em * var(--vs-line-height));
+  aspect-ratio: 1;
+  vertical-align: middle;
+}
+
+.t-link__icon svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(-0.1em);
+  width: 100%;
+}
+
+#pageContent,
+.l-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--rs-card-bezel);
+}
+
+.l-container {
+  position: relative;
+  font-size: 1.6rem;
+  min-width: 30rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.l-container--wide {
+  max-width: 60rem;
+}
+
+.l-divider {
+  display: block;
+  margin-top: calc(var(--vs-stack) * 2);
+  margin-bottom: calc(var(--vs-stack) * 2);
+  border-top: var(--vs-line) var(--rc-line) solid;
+}
+
+.l-divider--text {
+  display: flex;
+  gap: calc(var(--vs-gutter) * 2);
+  align-items: center;
+  margin-top: calc(var(--vs-stack) * 2);
+  margin-bottom: calc(var(--vs-stack) * 2);
+  border-top: none;
+  height: calc(1em * var(--vs-line-height));
+}
+
+.l-divider--text::before,
+.l-divider--text::after {
+  content: "";
+  flex-grow: 1;
+  border-top: var(--vs-line) var(--rc-line) solid;
+}
+
+.l-divider__label {
+  display: inline-block;
+}
+
+.l-stack {
+  display: block;
+  margin-top: calc(var(--vs-stack) * 3);
+}
+.l-stack--spacious {
+  margin-top: calc(var(--vs-stack) * 5);
+}
+
+.l-horizontal {
+  display: flex;
+  gap: var(--vs-inline);
+}
+
+/**
+ * Title with counter and Actions
+ */
+
+/**
+ * Card components
+ */
+
+.c-card {
+  display: block;
+  position: relative;
+  padding: var(--rs-card-bezel) var(--rs-card-bezel-x);
+  border: var(--vs-line) solid var(--rc-line);
+  background-color: var(--rc-background-transparent);
+  border-radius: 0.4rem;
+  margin-top: var(--rs-card-stack);
+}
+
+.c-card--highlight {
+  padding: calc(var(--rs-card-bezel) * 1.25);
+  background-color: var(--rc-background-transparent);
+  box-shadow: 0 1rem 1rem var(--rc-line);
+  border-radius: 2rem;
+}
+
+.c-card--narrow {
+  padding: var(--rs-card-bezel-narrow);
+}
+
+@media (max-width: 512px) {
+  .c-card--highlight {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.c-card__icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10%;
+  aspect-ratio: 1;
+  z-index: var(--vz-foreground);
+  transform: translate(40%, -40%);
+}
+
+.c-card__icon svg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.c-card__icon svg * {
+  fill: var(--rc-background);
+  stroke-width: 3px;
+  stroke: var(--rc-warning);
+}
+
+.c-card__content {
+  position: relative;
+  z-index: var(--vz-foreground);
+}
+
+.c-card__title {
+  /*
+    approximation: to make sure the title
+    does not collide with the icon on the left
+  */
+  padding-right: 10%;
+}
+
+.c-card__paragraph {
+  margin-top: calc(var(--vs-stack) * 0.75);
+}
+
+.c-card--warning {
+  position: relative;
+  border: none;
+  border-radius: 4px;
+}
+
+.c-card--warning::before {
+  position: absolute;
+  content: "";
+  z-index: 0;
+  inset: 0;
+  background-image: linear-gradient(170deg, var(--rg-brand));
+  filter: blur(30px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.c-card--warning::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: var(--vz-background);
+  background: var(--rc-background);
+  border-radius: 4px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/**
+ *  logo component
+ */
+.c-logo {
+  display: block;
+  overflow: hidden;
+  margin: var(--rs-logo-stack) 0 0;
+  font-weight: 600;
+}
+
+.c-logo svg {
+  display: block;
+  width: 25%;
+  margin: 0 auto;
+}
+
+.t-title + .c-logo {
+  margin: var(--rs-logo-stack) 0;
+}
+
+.t-action:hover {
+  color: var(--vc-brand-blue);
+}
+
+.c-spinner {
+  display: block;
+  position: relative;
+  width: 25%;
+  height: 25%;
+  margin: var(--rs-logo-stack) auto;
+  color: var(--vc-brand-purple);
+}
+
+.c-spinner svg {
+  overflow: visible;
+  animation: rotate 4s linear infinite;
+}
+
+/**
+ *  Forms and Buttons
+ */
+
+.c-button {
+  background: var(--rc-button);
+  color: var(--rc-onButton);
+  padding: calc(0.8 * var(--rs-button-bezel)) var(--rs-button-bezel);
+  margin-top: var(--rs-button-stack);
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 99999px;
+}
+
+.c-button__icon svg {
+  height: 100%;
+}
+
+.c-button__icon:focus,
+.c-button__icon:hover {
+  fill: var(--rc-onButton);
+  stroke-width: 0.5px;
+  stroke: var(--rc-button);
+}
+
+.c-button svg * {
+  fill: currentColor;
+}
+
+.c-button--secondary {
+  background: var(--rc-button-secondary);
+  color: var(--rc-button);
+  border: var(--vs-line) solid var(--rc-line);
+}
+
+.c-button:not([disabled]):focus,
+.c-button:not([disabled]):hover {
+  opacity: 0.9;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px var(--rc-interaction);
+  outline: 2px dotted transparent;
+  outline-offset: 2px;
+}
+
+/* Copy pasted from the focus and hover, but with different opacity to show action */
+.c-button:not([disabled]):active {
+  opacity: 0.5;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px var(--rc-interaction);
+  outline: 2px dotted transparent;
+  outline-offset: 2px;
+}
+
+.c-button[disabled],
+.c-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.c-button--warning {
+  background: var(--rc-warning);
+  color: var(--rc-onWarning);
+}
+
+.c-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: var(--rs-input-bezel-narrow) calc(3 * var(--rs-input-bezel));
+  margin-top: var(--rs-input-stack);
+  background: var(--rc-input);
+  color: var(--rc-onInput);
+  border: calc(var(--vs-line) * 2) solid var(--rc-line);
+  word-break: break-word;
+}
+
+.c-button-group {
+  display: flex;
+  gap: var(--vs-inline);
+  margin-top: var(--vs-stack);
+}
+
+.c-input.has-error,
+.c-input.has-error:focus {
+  color: var(--rc-warning);
+  box-shadow: inset 0 0 0 calc(var(--vs-line) * 2) var(--rc-warning);
+  border-image: none;
+}
+
+.c-input:focus {
+  opacity: 0.9;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px var(--rc-interaction);
+  outline: 2px dotted transparent;
+  outline-offset: 2px;
+}
+
+.c-input--rounded {
+  border-radius: 999999px;
+}
+
+.c-input--centered {
+  text-align: center;
+}
+
+.c-input--spacious {
+  padding: calc(2 * var(--rs-input-bezel)) calc(3 * var(--rs-input-bezel))
+    calc(1.8 * var(--rs-input-bezel));
+}
+
+.c-input--vip {
+  font-size: 1.4em;
+  padding: calc(1.2 * var(--rs-input-bezel)) calc(3 * var(--rs-input-bezel))
+    var(--rs-input-bezel);
+}
+
+.c-input--vip::placeholder {
+  font-weight: normal;
+}
+
+.c-input--readonly {
+  background: var(--rc-input-readonly);
+  color: var(--rc-input-onReadonly);
+  border: var(--vs-line) var(--rc-line) solid;
+}
+
+.c-input--textarea {
+  padding: calc(3 * var(--rs-input-bezel));
+}
+
+.c-input--icon {
+  position: relative;
+  padding-bottom: calc(4 * var(--rs-input-bezel));
+  margin-bottom: calc(var(--rs-input-stack) * 2);
+}
+
+.c-input__icon {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  z-index: var(--vz-foreground);
+  background-color: var(--rc-input);
+  border: var(--vs-line) solid var(--rc-line);
+  border-radius: 4px;
+  display: flex;
+  padding: var(--rs-input-bezel) calc(var(--rs-input-bezel) * 2);
+  border-radius: 5rem;
+  background: var(--rc-button);
+  color: var(--rc-onButton);
+  transform: translate(50%, 50%) scale(0.9);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 400ms transform cubic-bezier(0.3, 0.7, 0, 1);
+}
+
+.c-input__icon:hover {
+  transform: translate(50%, 50%) scale(0.99);
+}
+
+.c-input__icon svg {
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: var(--rs-input-bezel);
+  margin-right: calc(var(--rs-input-bezel) * -0.25);
+}
+
+/* hides and show icons based on a class */
+
+.c-input__icon svg + svg {
+  margin-left: -1em;
+  visibility: hidden;
+  transform: scale(0.4);
+  opacity: 0;
+  transition: transform 500ms cubic-bezier(0.3, 0.7, 0, 1) 100ms,
+    opacity 300ms linear;
+  color: greenyellow;
+}
+
+.c-input__icon.is-copied svg {
+  visibility: hidden;
+}
+
+.c-input__icon.is-copied svg + svg {
+  visibility: visible;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.c-input__button {
+  position: absolute;
+  top: 50%;
+  right: var(--rs-input-bezel);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.c-input__button:focus,
+.c-input__button:hover {
+  fill: var(--rc-onButton);
+  stroke-width: 0.5px;
+  stroke: var(--rc-button);
+}
+
+.c-summary {
+  list-style: none;
+}
+
+.c-summary__link {
+  display: block;
+  position: relative;
+}
+
+.c-summary__link::before {
+  position: absolute;
+  content: "▶";
+  font-size: 0.75em;
+  line-height: 2;
+  /* Divide --vs-inline by 2 to ensure we don't actually hit the left border */
+  left: calc(-1 * var(--vs-inline) / 2);
+  text-decoration: none;
+  transform: translateX(-100%);
+  transition: 200ms cubic-bezier(0.3, 0.7, 0, 1);
+}
+
+[open] .c-summary__link::before {
+  transform: translateX(-100%) rotate(90deg);
+}
+
+/**
+ *  Footer component
+ */
+
+.l-footer {
+  padding: var(--rs-footer-gutter);
+  margin-top: var(--rs-footer-stack);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.l-footer__elem {
+  position: relative;
+  padding: 0 var(--vs-inline);
+}
+
+.l-footer__elem + .l-footer__elem::before {
+  position: absolute;
+  content: "·";
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.page-signature {
+  display: block;
+  padding: var(--rs-footer-gutter);
+  transition: background 0.2s;
+}
+
+.page-signature img {
+  display: block;
+  max-width: 100%;
+}
+
+.page-signature:hover,
+.page-signature:focus {
+  background: var(--grey-050);
+}
+
+.c-list--flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.c-list--flex li {
+  margin: 0.5rem;
+}
+
+.c-list--bulleted {
+  list-style-type: disc;
+}
+
+.c-list--bulleted li,
+.c-list--numbered li {
+  margin-left: calc(var(--vs-inline) * 2);
+}
+
+.c-list--numbered {
+  list-style-type: decimal;
+}
+
+.c-list__item--vip {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.c-list__parcel--select {
+  cursor: pointer;
+}
+
+.c-list__parcel--select:hover {
+  transition: background-color 400ms cubic-bezier(0.3, 0.7, 0, 1);
+}
+
+.c-list--anchors {
+  --border-radius: 8px;
+}
+
+.c-list__item--icon {
+  position: relative;
+}
+
+.c-list__item--icon .c-list__parcel:last-of-type {
+  padding-right: calc(1.5em + 0.8em * 2);
+}
+
+.c-list--anchors .c-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  border: var(--vs-line) var(--rc-line) solid;
+  position: relative;
+}
+
+.c-list--anchors .c-list__item:focus-within,
+.c-list--anchors .c-list__item:focus,
+.c-list--anchors .c-list__item--focus {
+  z-index: var(--vz-foreground);
+}
+
+.c-list--anchors .c-list__item::before,
+.c-list--anchors .c-list__item::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+}
+
+.c-list--anchors .c-list__item::after {
+  background: var(--vc-brand-alt);
+  opacity: 0;
+  mix-blend-mode: darken;
+  transition: opacity 200ms linear;
+}
+
+.c-list--anchors .c-list__item:hover::after {
+  opacity: 0.3;
+}
+
+.c-list--anchors .c-list__item--noFocusStyle:hover::after {
+  opacity: 0;
+}
+
+.c-list--anchors .c-list__item::before {
+  will-change: filter;
+  background-image: linear-gradient(270deg, var(--rg-brand));
+  filter: blur(20px);
+  opacity: 0;
+  transform: scaleX(0.1) scaleY(0.7);
+  transition: 300ms opacity linear, 600ms transform cubic-bezier(0.3, 0.7, 0, 1);
+}
+
+.c-list--anchors .c-list__item:focus-within::before,
+.c-list--anchors .c-list__item--focus::before {
+  opacity: 1;
+  transform: scaleX(1) scaleY(0.8);
+}
+
+.c-list--anchors .c-list__item--noFocusStyle::before {
+  display: none;
+}
+
+.c-list--anchors .c-list__item:first-of-type {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.c-list--anchors .c-list__item:first-of-type .c-list__parcel:first-of-type {
+  border-top-left-radius: var(--border-radius);
+}
+
+.c-list--anchors .c-list__item:first-of-type .c-list__parcel:last-of-type {
+  border-top-right-radius: var(--border-radius);
+}
+
+.c-list--anchors
+  .c-list__item:first-of-type
+  .c-list__parcel--fullwidth:first-of-type {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.c-list--anchors .c-list__item:last-of-type {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.c-list--anchors .c-list__item:last-of-type .c-list__parcel:first-of-type {
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.c-list--anchors .c-list__item:last-of-type .c-list__parcel:last-of-type {
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.c-list--anchors
+  .c-list__item:last-of-type
+  .c-list__parcel--fullwidth:last-of-type {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.c-list--anchors .c-list__item + .c-list__item {
+  margin-top: calc(-1 * var(--vs-line));
+}
+
+.c-list__parcel {
+  position: relative;
+  padding: var(--vs-bezel) 0.8em;
+  border: var(--vs-line) solid var(--rc-line);
+  flex-grow: 1;
+  margin: calc(-1 * var(--vs-line));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: var(--rc-input);
+}
+
+.c-list__parcel--detail {
+  overflow: hidden;
+  white-space: inherit;
+  padding: var(--vs-bezel) 0.8em;
+}
+
+.c-list__parcel--fullwidth {
+  flex: 1 0 100%;
+  width: 100%;
+}
+
+.c-list__icon {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  right: calc(var(--vs-bezel) * 1.5);
+  transform: translateY(-50%);
+  width: 1.5em;
+  height: 1.5em;
+  --stroke-width: 2;
+}
+
+/* This is a workaround for animating the arrow icon on all major browsers
+ * (Safari, Chrome, Firefox). SVG path update doesn't work on Safari, and
+ * svg transform is glitchy on Firefox. So instead we hide part of the
+ * arrow and "unhide" it on hover, which looks like the arrow is growing.
+ */
+.c-list__icon--masked {
+  clip-path: inset(0 0 0 35%);
+  transition: clip-path 300ms cubic-bezier(0.3, 0.7, 0, 1);
+}
+
+.c-list--anchors .c-list__item:hover .c-list__icon--masked {
+  clip-path: inset(0 0 0 0%);
+}
+
+.c-list__icon svg {
+  display: block;
+  width: 100%;
+}
+
+/**
+ *  Tooltip component
+ *  This is a CSS only tooltip that shows on hover
+ *  The element that triggers the tooltip must have a .c-tooltip class
+ *  and the element that appears on hover must have a .c-tooltip__content class.
+ *
+ *  In some cases tooltips are only shown when the element is disabled.
+ *  in those cases you can use the `.c-tooltip--onDisabled` modifier
+ */
+
+.c-tooltip {
+  position: relative;
+}
+
+.c-tooltip:hover .c-tooltip__message {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c-tooltip--onDisabled:hover .c-tooltip__message {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c-tooltip--onDisabled:disabled:hover .c-tooltip__message {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c-tooltip__message {
+  position: absolute;
+  left: 0;
+
+  opacity: 0;
+  color: var(--rc-text);
+  visibility: hidden;
+  z-index: var(--vz-tooltip);
+  text-align: left;
+  min-width: 15rem;
+  max-width: 20rem;
+  transition: opacity 0.2s ease-in;
+  background-color: var(--rc-background);
+}
+
+.c-tooltip__message--right {
+  right: 0;
+  left: auto;
+}
+
+/* chasm: alternative to tooltips, where the card opens to reveal details */
+
+.c-chasm {
+  margin-left: calc(-1.25 * var(--rs-card-bezel));
+  margin-right: calc(-1.25 * var(--rs-card-bezel));
+}
+
+.c-chasm[aria-expanded="false"] {
+  max-height: 0;
+  visibility: hidden;
+  transition: max-height 0.15s ease-out;
+}
+
+.c-chasm[aria-expanded="true"] {
+  max-height: calc(5em * var(--vs-line-height) + var(--rs-card-bezel) * 2);
+  visibility: visible;
+  transition: max-height 400ms cubic-bezier(0.3, 0.7, 0, 1);
+}
+
+.c-chasm__content {
+  background-color: var(--rc-input);
+  padding: calc(1.25 * var(--rs-card-bezel));
+}
+
+.c-chasm__arrow {
+  margin: auto;
+  width: 0;
+  height: 0;
+  background: var(--rc-input);
+  width: 2.5rem;
+  height: 1.2rem;
+  /* triangle path */
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.c-chasm__button {
+  transition: transform 300ms cubic-bezier(0.3, 0.7, 0, 1);
+}
+.c-chasm__button svg {
+  transform: translate(-50%, -50%);
+}
+
+.c-chasm__button--flipped {
+  transform: rotate(180deg);
+}
+
+.c-action-list {
+  margin-top: 1rem;
+}
+
+.c-action-list__item {
+  display: flex;
+  gap: var(--vs-gutter);
+}
+
+.c-action-list__item + .c-action-list__item {
+  margin-top: var(--vs-gutter);
+}
+
+.c-action-list__label {
+  flex-grow: 1;
+}
+
+.c-action-list__action,
+.c-action-list__label {
+  display: flex;
+  align-items: center;
+  border: var(--vs-line) solid var(--rc-line);
+  border-radius: 4px;
+  padding: var(--rs-button-bezel);
+  background: var(--rc-background);
+  transition: 200ms border-color linear;
+}
+
+.c-action-list__action svg {
+  transition: 200ms opacity linear;
+}
+
+.c-action-list__action:hover {
+  border-color: var(--rc-button);
+}
+
+.c-action-list__action:hover svg {
+  opacity: 0.8;
+}
+
+.c-img-block {
+  width: 100%;
+  display: block;
+}
+
+/** responsiveness */
+
+@media (max-width: 512px) {
+  #pageContent,
+  .l-wrap {
+    justify-content: flex-start;
+    padding: 0;
+  }
+  .l-container {
+    margin: 0;
+    width: 100%;
+    padding: 10%;
+
+    max-width: none;
+  }
+}
+
+/* VII) Utilities/Trumps:     Helpers and overrides. (hidden, error classes, */
+.is-hidden {
+  display: none !important;
+}
+
+.is-visible {
+  display: block !important;
+}
+
+.c-input--anchor {
+  position: relative;
+}
+
+.c-input--anchor__wrap {
+  position: relative;
+  display: block;
+}
+
+.c-input--anchor__wrap::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  border-radius: 999999px;
+  background-image: linear-gradient(270deg, var(--rg-brand));
+  filter: blur(20px);
+  opacity: 0;
+  transform: scale(1) translateZ(0);
+  transition: 300ms transform cubic-bezier(0.7, 0.3, 0, 1), 300ms opacity linear;
+}
+
+.c-input--anchor__wrap:focus-within::before {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+}
+
+.c-input--anchor:focus-within input {
+  border-style: double;
+  border-width: calc(var(--vs-line) * 2);
+  border-color: transparent;
+  background-image: linear-gradient(white, white),
+    linear-gradient(270deg, var(--rg-brand));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: none;
+}
+
+.c-input--anchor input {
+  position: relative;
+  z-index: 1;
+}
+
+.c-input__error {
+  left: 0px;
+  right: 0px;
+  position: absolute;
+
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+
+  min-width: 15rem;
+  text-align: left;
+  background-color: var(--rc-background);
+  color: var(--rc-text);
+  z-index: var(--vz-tooltip);
+}
+
+.c-input__error--errored {
+  opacity: 1;
+}
+
+/* Needed to override the "reset" rules */
+/* Without this, the checkbox is simply not shown */
+input[type="checkbox"] {
+  -webkit-appearance: checkbox !important;
+  -moz-appearance: checkbox !important;
+  -ms-appearance: checkbox !important;
+  -o-appearance: checkbox !important;
+  appearance: checkbox !important;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

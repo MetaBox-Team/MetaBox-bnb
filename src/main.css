@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "OPPOSans";
+  src: url("./fonts/OPPOSansBold.ttf");
+}
+@font-face {
+  font-family: "Inter_Regular";
+  src: url("./fonts/Inter-Regular-9.otf")
+}
+@font-face {
+  font-family: "Inter_Bold";
+  src: url("./fonts/Inter-Bold-4.otf")
+}
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter-Medium-8.otf")
+}
+@font-face {
+  font-family: "Inter_Light";
+  src: url("./fonts/Inter-Light-7.otf")
+}
+@font-face {
+  font-family: "Inter_Thin";
+  src: url("./fonts/Inter-Thin-11.otf")
+}
+
+html,
+body,
+main {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #ffffff;
+}
+
+input,
+textarea {
+  border: none;
+  background: none;
+  outline: none;
+  resize: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  margin: 0;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: couriernew, courier, monospace;
+}
+
+small {
+  font-size: 12px;
+}
+
+ul,
+ol,
+p {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  color: inherit;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.Layout {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.notistack-SnackbarContainer {
+  top: 90px;
+}

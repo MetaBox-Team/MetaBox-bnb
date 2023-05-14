@@ -1,0 +1,94 @@
+// assets cannot be deleted
+import {TokenInfo} from '@/types/global';
+
+export const XTC = 'gvbup-jyaaa-aaaah-qcdwa-cai';
+export const defaultToken = [
+  process.env.REACT_APP_DFC_CANISTER_ID || "",
+  process.env.REACT_APP_WICPT_CANISTER_ID || "",
+];
+
+//default token information
+export const defaultTokenList: TokenInfo[] = [
+  {
+    bal: null,
+    cycles: 0,
+    decimals: 8,
+    deployTime: 0,
+    fee: 0,
+    feeTo: '',
+    historySize: 0,
+    holderNumber: 0,
+    id: XTC,
+    logo: "data:image/jpeg;base64,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",
+    name: "XTC",
+    owner: '',
+    symbol: "XTC",
+    totalSupply: 0,
+  },
+  {
+    bal: null,
+    cycles: 0,
+    decimals: 8,
+    deployTime: 0,
+    fee: 0,
+    feeTo: '',
+    historySize: 0,
+    holderNumber: 0,
+    id: "gvbup-jyaaa-aaaah-qcdwa-cai",
+    logo: "data:image/jpeg;base64,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",
+    name: "XTC Test",
+    owner: 'WICP',
+    symbol: "WICP",
+    totalSupply: 0,
+  }
+]
+
+export const BEP20ABI = [
+  {
+    "constant": false,
+    "inputs": [{"internalType": "address", "name": "recipient", "type": "address"}, {
+      "internalType": "uint256",
+      "name": "amount",
+      "type": "uint256"
+    }],
+    "name": "transfer",
+    "outputs": [{"internalType": "bool", "name": "", "type": "bool"}],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
+
+export const ERC20ABI = [{
+  "constant": true,
+  "inputs": [
+    {
+      "name": "_owner",
+      "type": "address"
+    }
+  ],
+  "name": "balanceOf",
+  "outputs": [
+    {
+      "name": "balance",
+      "type": "uint256"
+    }
+  ],
+  "payable": false,
+  "type": "function"
+},
+  {
+    "constant": false,
+    "inputs": [{"name": "_to", "type": "address"}, {"name": "_value", "type": "uint256"}],
+    "name": "transfer",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
+
+
+
+
+

@@ -1,0 +1,220 @@
+{
+  "LogIn": {
+    "choose_wallet": "chọn ví",
+    "welcome_back!": "Chào mừng trở lại!",
+    "please_enter_password": "Vui lòng nhập mật khẩu của bạn",
+    "login": "Đăng nhập",
+    "logout": "đăng xuất"
+  },
+  "Description": "",
+  "SearchFile": "tìm tập tin",
+  "FileExist": "File tồn tại",
+  "FileNotExist": "tập tin không tồn tại",
+  "DeleteFile": {
+    "title": "Sau khi tệp bị xóa, nội dung sẽ không còn được giữ lại. Bạn có muốn thực hiện việc này không?",
+    "content": "Bạn có chắc chắn muốn xóa các tệp này không?"
+  },
+  "Follow": {
+    "all_members": "tất cả thành viên",
+    "modal_title": "xóa người dùng",
+    "confirm_modal": "Bạn có chắc chắn xóa người dùng này không? Sau khi xóa nó sẽ không còn xuất hiện trong danh sách của bạn.",
+    "no_description": "Người này không có mô tả",
+    "Followers": {
+      "followers": "quạt",
+      "follow": "tập trung vào",
+      "delete_fan": "xóa người dùng này"
+    },
+    "Followings": {
+      "followings": "đang theo dõi",
+      "unfollow": "hủy đăng ký"
+    }
+  },
+  "BackToHome": {
+    "to_back": "Trở về nhà"
+  },
+  "toast": {
+    "not_upgrade": "Hồ sơ người dùng chưa được nâng cấp và không thể truy cập",
+    "not_signUp": "Người dùng chưa đăng ký metabox và không thể truy cập",
+    "no_user": "người dùng không tồn tại",
+    "init_failed": "Khởi tạo không thành công, vui lòng thử lại...",
+    "start_box": "Vui lòng kích hoạt hộp trước",
+    "file_deleted": "tập tin đã bị xóa"
+  },
+  "Notify": {
+    "title": "THÔNG BÁO CỦA BẠN",
+    "cancel_box": "Ngừng chia sẻ Box với bạn",
+    "cancel_file": "Ngừng chia sẻ Tệp với bạn",
+    "share_file": "chia sẻ một tập tin với bạn",
+    "share_box": "chia sẻ một tập tin với bạn",
+    "transfer_box": "Chuyển cho bạn một Hộp"
+  },
+  "ToolTip": {
+    "double_click": "Nhấp đúp để tải xuống",
+    "no_message": "không có tin tức"
+  },
+  "Banner": {
+    "tip": "Vui lòng bấm tham gia nhóm TG của chúng tôi để tham gia các hoạt động của MetaBox trong vài ngày tới",
+    "tip_1": "Nếu bạn đã tạo Hộp trong V1, vui lòng nhấp để nhận huy hiệu OG của bạn"
+  },
+  "DataPanel": {
+    "data_box": "hộp dữ liệu",
+    "data_panel": "bảng dữ liệu",
+    "account": "tài khoản",
+    "activity": "Hoạt động",
+    "welcome_back": "Chào mừng trở lại",
+    "my_message": "thông tin của tôi",
+    "box_list": "danh sách hộp",
+    "databox_list": "danh sách hộp dữ liệu",
+    "create_Box": "tạo hộp",
+    "recently_download": "tải về gần đây",
+    "box_name": "Tên",
+    "box_cycles": "thời gian có sẵn",
+    "box_state": "tiểu bang",
+    "box_capacity": "dung tích",
+    "box_version": "Phiên bản",
+    "update_box": "nâng cấp",
+    "manage_box": "quản lý",
+    "show_box": "triển lãm",
+    "stop_box": "dừng lại",
+    "action_stop": "dừng lại",
+    "action_start": "khởi động",
+    "action_delete": "xóa bỏ",
+    "action_share": "đăng lại",
+    "action_transfer": "chuyển khoản",
+    "action_update": "thay đổi thông tin",
+    "action_topUp": "nạp tiền",
+    "state_active": "tích cực",
+    "state_shortage": "sự thiếu",
+    "state_serious": "nghiêm túc"
+  },
+  "DataBox": {
+    "upload": "tải lên",
+    "table_head_all_files": "Tất cả các tệp",
+    "table_head_all_encrypted_files": "tập tin được mã hóa",
+    "table_head_all_plaintext_files": "tập tin văn bản rõ ràng",
+    "table_head_all_shared_files": "chia sẻ tập tin",
+    "table_head_all_pay_files": "tài liệu trả phí",
+    "my_shared": "chia sẻ",
+    "shared_with_me": "chia sẻ với tôi",
+    "file_name": "tên tập tin",
+    "file_size": "Kích thước tập tin",
+    "file_location": "Vị trí tập tin",
+    "file_key": "nhận dạng tập tin",
+    "action_download": "Tải xuống",
+    "action_detail": "thông tin chi tiết",
+    "action_share": "chia sẻ",
+    "action_delete": "xóa bỏ",
+    "Drawer": {
+      "file_detail": "Chi tiết tệp",
+      "file_name": "tên tập tin",
+      "file_type": "loại tệp",
+      "file_key": "nhận dạng tập tin",
+      "box_id": "nhận dạng hộp",
+      "file_location": "vị trí tập tin",
+      "file_creator": "người sáng tạo",
+      "file_share_others": "nhóm chia sẻ",
+      "file_size": "Kích thước tập tin",
+      "file_aes_key": "tài liệu AES key",
+      "file_receiver": "người nhận"
+    }
+  },
+  "Profile": {
+    "website": "trang mạng",
+    "button_follow": "làm theo",
+    "button_unfollow": "bỏ đăng ký",
+    "button_following": "Tiếp theo",
+    "fans": "quạt",
+    "following": "những người dùng đang theo dõi",
+    "create_link": "tạo ra",
+    "edit_link": "chỉnh sửa"
+  },
+  "Modal": {
+    "button_confirm": "xác nhận",
+    "button_cancel": "Khép kín",
+    "CancelShareModal": {
+      "title": "danh sách chia sẻ",
+      "identity": "danh tính",
+      "input_placeholder": "Nhập ID của người được mời"
+    },
+    "CreateBoxModal": {
+      "title_1": "Tạo hộp dữ liệu",
+      "title_2": "Cập nhật thông tin hộp",
+      "avatar": "hình đại diện",
+      "name": "Tên",
+      "private": "riêng",
+      "input_placeholder": "Đặt cho chiếc hộp một cái tên thật ngầu"
+    },
+    "Burn": {
+      "title": "Phá hủy huy hiệu OG",
+      "item_title": "Chuyển 2 ICP bị phá hủy sang:",
+      "placeholder": "Vui lòng nhập ID tài khoản"
+    },
+    "CreateProfileWebsiteModal": {
+      "title_1": "tạo ra",
+      "title_2": "chỉnh sửa",
+      "item_1_0": "hình ảnh",
+      "item_1_1": "hình đại diện",
+      "item_2_0": "liên kết trang web",
+      "item_2_1": "Tên",
+      "item_3_0": "Tên sự kiện",
+      "item_3_1": "Chữ ký"
+    },
+    "DeleteBoxModal": {
+      "title": "hộp xóa",
+      "cycles_to": "chuyển số dư sang",
+      "input_placeholder": "bình ID",
+      "error": "lọ không tồn tại"
+    },
+    "EditProfileWebsiteModal": {
+      "title": "chỉnh sửa",
+      "link_img": "hình ảnh",
+      "link_url": "liên kết trang web",
+      "link_name": "tiêu đề liên kết"
+    },
+    "SelectBoxModal": {
+      "title": "hộp chọn",
+      "input_placeholder": "Vui lòng chọn hộp để lưu trữ tệp này",
+      "input_placeholder_2": "Vui lòng chọn ô để nhận các chu kỳ còn lại"
+    },
+    "SharedModal": {
+      "title": "chia sẽ với",
+      "who": "phía bên kia",
+      "remark": "Nhận xét",
+      "input_placeholder_1": "Nhập UserID hoặc hiệu trưởng",
+      "input_placeholder_2": "Viết một mô tả...",
+      "error": "người dùng không tồn tại"
+    },
+    "TopUpModal": {
+      "title": "nạp tiền",
+      "token": "loại mã thông báo",
+      "account": "tài khoản",
+      "tip": "Hãy nạp đủ icp vào tài khoản này",
+      "amount": "số tiền",
+      "balance": "số dư của bạn"
+    },
+    "TransferModal": {
+      "title": "hộp chuyển",
+      "to": "vật",
+      "input_placeholder": "Vui lòng nhập UserID hoặc hiệu trưởng",
+      "error": "người dùng không tồn tại"
+    },
+    "UploadModal": {
+      "wallet": "cái ví",
+      "title": "tải lên",
+      "file_type": "loại tệp",
+      "encrypt": "mật mã hóa",
+      "token": "Mã thông báo",
+      "plain": "văn bản rõ ràng",
+      "store_location": "vị trí lưu trữ",
+      "permission": "sự cho phép",
+      "private": "riêng",
+      "public": "công cộng",
+      "upload": "tải tập tin lên",
+      "drop": "Nhấp hoặc kéo để tải lên....",
+      "tip_0": "Vui lòng chọn một tệp",
+      "tip_1": "Một lần tải lên không được vượt quá 300M",
+      "tip_2": "Một lần tải lên không được vượt quá 100M",
+      "tip_3": "Số dư không đủ, vui lòng truy cập trang gửi tiền để nạp tiền"
+    }
+  }
+}

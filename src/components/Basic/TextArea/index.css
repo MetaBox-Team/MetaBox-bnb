@@ -1,0 +1,7 @@
+input,
+textarea {
+    border: none;
+    background: none;
+    outline: none;
+    resize: none;
+}

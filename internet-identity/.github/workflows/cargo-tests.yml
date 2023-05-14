@@ -1,0 +1,28 @@
+name: Cargo fmt
+
+on:
+  push:
+
+jobs:
+  cargo-fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # set a PAT so that add-and-commit can trigger
+          # CI runs
+          token: ${{ secrets.GIX_BOT_PAT }}
+      - uses: ./.github/actions/bootstrap
+
+      - name: Cargo fmt
+        run: |
+          rustup component add rustfmt
+          cargo fmt
+      - name: Commit Formatting changes
+        uses: EndBug/add-and-commit@v9
+        # We don't want to commit formatting changes to main
+        if: ${{ github.ref != 'refs/heads/main' }}
+        with:
+          add: src
+          default_author: github_actions
+          message: "🤖 cargo-fmt auto-update"

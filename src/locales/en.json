@@ -1,0 +1,220 @@
+{
+  "LogIn": {
+    "choose_wallet": "choose wallet",
+    "welcome_back!": "Welcome back!",
+    "please_enter_password": "please enter your password",
+    "login": "LogIn",
+    "logout": "Log out"
+  },
+  "Description": "",
+  "SearchFile": "Search file",
+  "FileExist": "File exists",
+  "FileNotExist": "File does not exist",
+  "DeleteFile": {
+    "title": "After the file is deleted, the content will no longer be retained. Do you want to do this?",
+    "content": "Are you sure you want to delete these files?"
+  },
+  "Follow": {
+    "all_members": "All Members",
+    "modal_title": "Remove User",
+    "confirm_modal": "Are you sure to remove this user? Once removed it will no longer appear in your list.",
+    "no_description": "This person has no description",
+    "Followers": {
+      "followers": "Fans",
+      "follow": "follow",
+      "delete_fan": "remove this user"
+    },
+    "Followings": {
+      "followings": "Followings",
+      "unfollow": "Unfollow"
+    }
+  },
+  "BackToHome": {
+    "to_back": "Back to Home"
+  },
+  "toast": {
+    "not_upgrade": "The user profile has not been upgraded and cannot be accessed",
+    "not_signUp": "The user has not registered metabox and cannot access",
+    "no_user": "User does not exist",
+    "init_failed": "Initialization failed, please try again...",
+    "start_box": "Please activate the box first",
+    "file_deleted": "the file has been deleted"
+  },
+  "Notify": {
+    "title": "YOUR NOTIFICATIONS",
+    "cancel_box": "Stop sharing Box with you",
+    "cancel_file": "Stop sharing File with you",
+    "share_file": "share a file with you",
+    "share_box": "share a box with you",
+    "transfer_box": "Transfer to you a Box"
+  },
+  "ToolTip": {
+    "double_click": "Double click to download",
+    "no_message": "No news"
+  },
+  "Banner": {
+    "tip": "Please click to join our TG group to participate in the next few days of MetaBox activities!!",
+    "tip_1": "If you created a Box in V1, please click here to claim your OG badge"
+  },
+  "DataPanel": {
+    "data_box": "Data Box",
+    "data_panel": "Data Panel",
+    "account": "Account",
+    "activity": "Activity",
+    "welcome_back": "Welcome Back",
+    "my_message": "My Message",
+    "box_list": "BOX LIST",
+    "databox_list": "DataBox List",
+    "create_Box": "Create Box",
+    "recently_download": "Recently Download",
+    "box_name": "Name",
+    "box_cycles": "Available Time",
+    "box_state": "State",
+    "box_capacity": "Capacity",
+    "box_version": "Version",
+    "update_box": "Upgrade",
+    "manage_box": "Manage",
+    "show_box": "Show",
+    "stop_box": "Stopped",
+    "action_stop": "stop",
+    "action_start": "start",
+    "action_delete": "delete",
+    "action_share": "share",
+    "action_transfer": "transfer",
+    "action_update": "Update Box Info",
+    "action_topUp": "TopUp",
+    "state_active": "Active",
+    "state_shortage": "Shortage",
+    "state_serious": "Serious"
+  },
+  "DataBox": {
+    "upload": "Upload",
+    "table_head_all_files": "All Files",
+    "table_head_all_encrypted_files": "Encrypted Files",
+    "table_head_all_plaintext_files": "Plain Files",
+    "table_head_all_shared_files": "Shared",
+    "table_head_all_pay_files": "Pay Files",
+    "my_shared": "My Shared",
+    "shared_with_me": "Shared with Me",
+    "file_name": "File Name",
+    "file_size": "File Size",
+    "file_location": "File Location",
+    "file_key": "File Key",
+    "action_download": "Download",
+    "action_detail": "Detail",
+    "action_share": "Share",
+    "action_delete": "Delete",
+    "Drawer": {
+      "file_detail": "FIle Detail",
+      "file_name": "File Name",
+      "file_type": "File Type",
+      "file_key": "File Key",
+      "box_id": "Store Box ID",
+      "file_location": "Location",
+      "file_creator": "Creator",
+      "file_share_others": "Share Others",
+      "file_size": "File Size",
+      "file_aes_key": "File AESKey",
+      "file_receiver": "Receiver"
+    }
+  },
+  "Profile": {
+    "website": "Website",
+    "button_follow": "Follow",
+    "button_unfollow": "Unfollow",
+    "button_following": "Following",
+    "fans": "Fans",
+    "following": "Followings",
+    "create_link": "Create",
+    "edit_link": "Edit"
+  },
+  "Modal": {
+    "button_confirm": "Confirm",
+    "button_cancel": "Close",
+    "CancelShareModal": {
+      "title": "sharer list",
+      "identity": "current status",
+      "input_placeholder": "Enter the invitee's ID"
+    },
+    "CreateBoxModal": {
+      "title_1": "Create Data Box",
+      "title_2": "Update Box Info",
+      "avatar": "Avatar",
+      "name": "Name",
+      "private": "Private",
+      "input_placeholder": "Give the box a cool name"
+    },
+    "CreateProfileWebsiteModal": {
+      "title_1": "Create",
+      "title_2": "Edit",
+      "item_1_0": "Campaign Image",
+      "item_1_1": "Avatar",
+      "item_2_0": "Website URL",
+      "item_2_1": "Name",
+      "item_3_0": "Campaign Name",
+      "item_3_1": "Description"
+    },
+    "Burn": {
+      "title": "Brun the MetaBox OG Badge",
+      "item_title": "Burn to 2 ICP, Account ID:",
+      "placeholder": "Please enter the Account ID"
+    },
+    "DeleteBoxModal": {
+      "title": "Delete Box",
+      "cycles_to": "Cycles to",
+      "input_placeholder": "canister ID",
+      "error": "canister not exist"
+    },
+    "EditProfileWebsiteModal": {
+      "title": "Edit",
+      "link_img": "Link Img",
+      "link_url": "Website URL",
+      "link_name": "Campaign Name"
+    },
+    "SelectBoxModal": {
+      "title": "Select Box",
+      "input_placeholder": "Please select the box to store this file",
+      "input_placeholder_2": "Please select the box to receive the remaining cycles"
+    },
+    "SharedModal": {
+      "title": "Share to",
+      "who": "who",
+      "remark": "remark",
+      "input_placeholder_1": "UserID or Principal",
+      "input_placeholder_2": "Description",
+      "error": "User does not exist"
+    },
+    "TopUpModal": {
+      "title": "Top Up",
+      "token": "Token",
+      "account": "Account",
+      "tip": "Please recharge enough icp to this account",
+      "amount": "Amount",
+      "balance": "Your Balance"
+    },
+    "TransferModal": {
+      "title": "Transfer Box",
+      "to": "to",
+      "input_placeholder": "User id",
+      "error": "User does not exist"
+    },
+    "UploadModal": {
+      "title": "Upload",
+      "wallet": "Wallet",
+      "file_type": "File Type",
+      "encrypt": "Encrypt",
+      "plain": "PlainText",
+      "store_location": "Store Location",
+      "permission": "Permission",
+      "token": "Token",
+      "private": "Private",
+      "public": "Public",
+      "upload": "Upload File",
+      "drop": "Click or drag to upload....",
+      "tip_0": "please select a file",
+      "tip_1": "A single upload cannot exceed 300M",
+      "tip_2": "A single upload cannot exceed 100M",
+      "tip_3": "Insufficient balance, please go to the deposit page to recharge"
+    }
+  }
+}

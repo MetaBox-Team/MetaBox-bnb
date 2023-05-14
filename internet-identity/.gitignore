@@ -1,0 +1,29 @@
+# Various IDEs and Editors
+.vscode/
+.idea/
+**/*~
+
+# Mac OSX temporary files
+.DS_Store
+**/.DS_Store
+
+# dfx temporary files
+.dfx/
+
+# frontend code
+node_modules/
+dist/
+.env
+lib
+wdio.log
+
+# Cargo build output
+target/
+
+# selenium docker environment files
+docker-test-env/dfx-docker/canisters/
+test-failures/
+
+# built canisters
+*.wasm
+ic-test-state-machine

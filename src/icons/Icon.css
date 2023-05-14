@@ -1,0 +1,18 @@
+@keyframes spin_1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+svg .icon .spin {
+    animation: spin_1 1500ms linear infinite;
+}
+
+.highlight :hover {
+    transition: all 0.25s;
+    opacity: 0.6;
+    box-shadow: 0.2rem 0.2rem 0.8rem 0.2rem rgba(0, 0, 0, 0.3);
+}

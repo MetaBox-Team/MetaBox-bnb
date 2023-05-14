@@ -1,0 +1,57 @@
+.SignUp .ant-upload-list-item-info {
+    width: 12.9rem;
+    height: 12.9rem;
+    border-radius: 50%;
+    border: .3rem dashed #C4C4C4;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+
+.SignUp .ant-upload {
+    width: 12.9rem;
+    height: 12.9rem;
+    border-radius: 50%;
+    border: .3rem dashed #C4C4C4;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+
+.SignUp .ant-upload.ant-upload-select {
+    display: flex;
+}
+
+.SignUp .ant-upload-select-picture-card {
+    border-radius: 50% !important;
+    background-color: transparent;
+    border: 0 !important;
+}
+
+.SignUp .ant-upload-list-item-list-type-picture-card {
+    width: 12.9rem;
+    height: 12.9rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    border: 0 !important;
+}
+
+.SignUp .ant-upload-list-picture-card-container {
+    width: 12.9rem;
+    height: 12.9rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    border: 0 !important;
+}
+
+.SignUp .ant-upload-list-item-info {
+    border: 0 !important;
+}

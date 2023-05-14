@@ -1,0 +1,220 @@
+{
+  "LogIn": {
+    "choose_wallet": "ウォレットの選択",
+    "welcome_back!": "お帰りなさい!",
+    "please_enter_password": "パスワードを入力してください",
+    "login": "ログイン",
+    "logout": "ログアウト"
+  },
+  "Description": "",
+  "SearchFile": "ファイルを検索",
+  "FileExist": "ファイルが存在しています",
+  "FileNotExist": "ファイルが存在しません",
+  "DeleteFile": {
+    "title": "ファイルを削除すると、コンテンツは保持されなくなります。削除しますか?",
+    "content": "これらのファイルを削除してもよろしいですか?"
+  },
+  "Follow": {
+    "all_members": "全員",
+    "modal_title": "ユーザーを削除",
+    "confirm_modal": "このユーザーを削除してもよろしいですか? 削除すると、リストに表示されなくなります。",
+    "no_description": "この人には説明がありません",
+    "Followers": {
+      "followers": "ファン",
+      "follow": "焦点を合わせる",
+      "delete_fan": "このユーザーを削除"
+    },
+    "Followings": {
+      "followings": "フォローしている",
+      "unfollow": "退会する"
+    }
+  },
+  "BackToHome": {
+    "to_back": "家に帰る"
+  },
+  "toast": {
+    "not_upgrade": "ユーザー プロファイルはアップグレードされていないため、アクセスできません",
+    "not_signUp": "ユーザーはメタボックスを登録していないため、アクセスできません",
+    "no_user": "ユーザーは存在しません",
+    "init_failed": "初期化に失敗しました。もう一度お試しください...",
+    "start_box": "最初にボックスを有効にしてください",
+    "file_deleted": "ファイルは削除されました"
+  },
+  "Notify": {
+    "title": "あなたの通知",
+    "cancel_box": "あなたとの Box の共有を停止する",
+    "cancel_file": "ファイルの共有をやめる",
+    "share_file": "あなたとファイルを共有する",
+    "share_box": "あなたとファイルを共有する",
+    "transfer_box": "あなたにボックスを転送します"
+  },
+  "ToolTip": {
+    "double_click": "ダブルクリックしてダウンロード",
+    "no_message": "ニュースはありません"
+  },
+  "Banner": {
+    "tip": "MetaBoxのイベントを開催するTGグループに参加するには、クリックしてください。",
+    "tip_1": "V1 で Box を作成した場合は、クリックして OG バッジを請求してください"
+  },
+  "DataPanel": {
+    "data_box": "データボックス",
+    "data_panel": "データパネル",
+    "account": "アカウント",
+    "activity": "アクティビティ",
+    "welcome_back": "お帰りなさい",
+    "my_message": "私の情報",
+    "box_list": "ボックスリスト",
+    "databox_list": "データボックス一覧",
+    "create_Box": "ボックスを作成",
+    "recently_download": "最近ダウンロードした",
+    "box_name": "名前",
+    "box_cycles": "利用可能な時間",
+    "box_state": "状態",
+    "box_capacity": "容量",
+    "box_version": "バージョン",
+    "update_box": "アップグレード",
+    "manage_box": "管理",
+    "show_box": "示す",
+    "stop_box": "停止",
+    "action_stop": "止まる",
+    "action_start": "起動",
+    "action_delete": "消去",
+    "action_share": "シェア",
+    "action_transfer": "移行",
+    "action_update": "変更情報",
+    "action_topUp": "再充電",
+    "state_active": "アクティブ",
+    "state_shortage": "不足",
+    "state_serious": "緊急"
+  },
+  "DataBox": {
+    "upload": "アップロード",
+    "table_head_all_files": "すべてのファイル",
+    "table_head_all_encrypted_files": "暗号化されたファイル",
+    "table_head_all_plaintext_files": "平文ファイル",
+    "table_head_all_shared_files": "共有ファイル",
+    "table_head_all_pay_files": "有料ドキュメント",
+    "my_shared": "共有",
+    "shared_with_me": "共有させてください",
+    "file_name": "ファイル名",
+    "file_size": "ファイルサイズ",
+    "file_key": "ファイル識別",
+    "file_location": "ファイルの場所",
+    "action_download": "ダウンロード",
+    "action_detail": "詳細",
+    "action_share": "シェア",
+    "action_delete": "消去",
+    "Drawer": {
+      "file_detail": "ファイルの詳細",
+      "file_name": "ファイル名",
+      "file_type": "ファイルの種類",
+      "file_key": "ファイル識別",
+      "box_id": "ボックス識別",
+      "file_location": "ファイルの場所",
+      "file_creator": "クリエイター",
+      "file_share_others": "共有グループ",
+      "file_size": "ファイルサイズ",
+      "file_aes_key": "ファイル AES key",
+      "file_receiver": "受信機"
+    }
+  },
+  "Profile": {
+    "website": "网址",
+    "button_follow": "焦点を合わせる",
+    "button_unfollow": "退会する",
+    "button_following": "続く",
+    "fans": "ファン",
+    "following": "フォローしている",
+    "create_link": "作成",
+    "edit_link": "編集"
+  },
+  "Modal": {
+    "button_confirm": "確認",
+    "button_cancel": "閉鎖",
+    "CancelShareModal": {
+      "title": "共有者リスト",
+      "identity": "現在のステータス",
+      "input_placeholder": "招待者の ID を入力してください"
+    },
+    "Burn": {
+      "title": "OGバッジを破壊する",
+      "item_title": "破壊された 2 ICP を次の場所に転送します。",
+      "placeholder": "アカウントIDを入力してください"
+    },
+    "CreateBoxModal": {
+      "title_1": "データ ボックスの作成",
+      "title_2": "ボックス情報を更新する",
+      "avatar": "アバター",
+      "name": "名前",
+      "private": "プライベート",
+      "input_placeholder": "ボックスにクールな名前を付ける"
+    },
+    "CreateProfileWebsiteModal": {
+      "title_1": "作成",
+      "title_2": "編集",
+      "item_1_0": "画像",
+      "item_1_1": "アバター",
+      "item_2_0": "ウェブサイトのリンク",
+      "item_2_1": "名前",
+      "item_3_0": "イベント名",
+      "item_3_1": "サイン"
+    },
+    "DeleteBoxModal": {
+      "title": "ボックスを削除",
+      "cycles_to": "残高をに転送",
+      "input_placeholder": "Canister ID",
+      "error": "キャニスターが存在しない"
+    },
+    "EditProfileWebsiteModal": {
+      "title": "編集",
+      "link_img": "画像",
+      "link_url": "ウェブサイトのリンク",
+      "link_name": "リンクタイトル"
+    },
+    "SelectBoxModal": {
+      "title": "選択ボックス",
+      "input_placeholder": "このファイルを保存するボックスを選択してください",
+      "input_placeholder_2": "残りのサイクルを受け取るには、ボックスを選択してください"
+    },
+    "SharedModal": {
+      "title": "と共有する",
+      "who": "向こう側",
+      "remark": "述べる",
+      "input_placeholder_1": "ユーザーIDまたはプリンシパルを入力してください",
+      "input_placeholder_2": "説明を書く...",
+      "error": "ユーザーは存在しません"
+    },
+    "TopUpModal": {
+      "title": "再充電",
+      "token": "トークンの種類",
+      "account": "アカウント",
+      "tip": "このアカウントに十分なicpをチャージしてください",
+      "amount": "総額",
+      "balance": "あなたのバランス"
+    },
+    "TransferModal": {
+      "title": "転送ボックス",
+      "to": "対象物",
+      "input_placeholder": "ユーザーIDまたはプリンシパルを入力してください",
+      "error": "ユーザーは存在しません"
+    },
+    "UploadModal": {
+      "title": "アップロード",
+      "wallet": "財布",
+      "file_type": "ファイルの種類",
+      "encrypt": "加密",
+      "token": "トークン",
+      "plain": "暗号化",
+      "store_location": "ストレージの場所",
+      "permission": "パーミッション",
+      "private": "プライベート",
+      "public": "公衆",
+      "upload": "ファイルをアップロードする",
+      "drop": "クリックまたはドラッグしてアップロード....",
+      "tip_0": "ファイルを選択してください",
+      "tip_1": "1 回のアップロードで 300M を超えることはできません",
+      "tip_2": "1 回のアップロードで 100M を超えることはできません",
+      "tip_3": "残高が不足しています。入金ページに移動して再チャージしてください"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "LogIn": {
+    "choose_wallet": "选择钱包",
+    "welcome_back!": "欢迎回来!",
+    "please_enter_password": "请输入您的密码",
+    "login": "登录",
+    "logout": "登出"
+  },
+  "Description": "",
+  "SearchFile": "查询文件",
+  "FileExist": "文件存在",
+  "FileNotExist": "文件不存在",
+  "DeleteFile": {
+    "title": "文件删除后，内容将不再保留,是否进行该操作?",
+    "content": "确定删除这些文件吗?"
+  },
+  "Follow": {
+    "all_members": "所有成员",
+    "modal_title": "移除用户",
+    "confirm_modal": "你确定移除该用户吗？移除之后其将不再显示在您的列表中.",
+    "no_description": "此人没有任何描述",
+    "Followers": {
+      "followers": "粉丝",
+      "follow": "关注",
+      "delete_fan": "移除该用户"
+    },
+    "Followings": {
+      "followings": "正在关注",
+      "unfollow": "取消关注"
+    }
+  },
+  "BackToHome": {
+    "to_back": "回家"
+  },
+  "toast": {
+    "not_upgrade": "该用户profile未升级，不可访问",
+    "not_signUp": "该用户未注册metabox，无法访问",
+    "no_user": "用户不存在",
+    "init_failed": "初始化失败，请重试...",
+    "start_box": "请先启动该Box",
+    "file_deleted": "该文件已删除"
+  },
+  "Notify": {
+    "title": "你的通知",
+    "cancel_box": "停止与你共享Box",
+    "cancel_file": "停止与你共享File",
+    "share_file": "分享给你一个文件",
+    "share_box": "分享给你一个Box",
+    "transfer_box": "转移给你一个Box"
+  },
+  "ToolTip": {
+    "double_click": "双击下载",
+    "no_message": "没有消息"
+  },
+  "Banner": {
+    "tip": "请点击加入我们的TG群，以参加MetaBox接下来几天的活动！！",
+    "tip_1": "如果你在V1创建过Box，请点击领取你的OG徽章"
+  },
+  "DataPanel": {
+    "data_box": "数据盒子",
+    "data_panel": "数据面板",
+    "account": "账户",
+    "activity": "活动",
+    "welcome_back": "欢迎回来",
+    "my_message": "我的信息",
+    "box_list": "盒子列表",
+    "databox_list": "数据盒子列表",
+    "create_Box": "创建盒子",
+    "recently_download": "最近下载",
+    "box_name": "名字",
+    "box_cycles": "可用时间",
+    "box_state": "状态",
+    "box_capacity": "容量",
+    "box_version": "版本",
+    "update_box": "升级",
+    "manage_box": "管理",
+    "show_box": "展示",
+    "stop_box": "已停止",
+    "action_stop": "停止",
+    "action_start": "启动",
+    "action_delete": "删除",
+    "action_share": "分享",
+    "action_transfer": "转移",
+    "action_update": "更改信息",
+    "action_topUp": "充值",
+    "state_active": "充足",
+    "state_shortage": "短缺",
+    "state_serious": "紧急"
+  },
+  "DataBox": {
+    "upload": "上传",
+    "table_head_all_files": "所有文件",
+    "table_head_all_encrypted_files": "加密文件",
+    "table_head_all_plaintext_files": "明文文件",
+    "table_head_all_shared_files": "分享文件",
+    "table_head_all_pay_files": "付费文件",
+    "my_shared": "已分享",
+    "shared_with_me": "分享给我",
+    "file_name": "文件名",
+    "file_size": "文件大小",
+    "file_location": "文件位置",
+    "file_key": "文件标识",
+    "action_download": "下载",
+    "action_detail": "详情",
+    "action_share": "分享",
+    "action_delete": "删除",
+    "Drawer": {
+      "file_detail": "文件细节",
+      "file_name": "文件名",
+      "file_type": "文件类型",
+      "file_key": "文件标识",
+      "box_id": "盒子标识",
+      "file_location": "文件位置",
+      "file_creator": "创建者",
+      "file_share_others": "共享组",
+      "file_size": "文件大小",
+      "file_aes_key": "文件AES key",
+      "file_receiver": "接收者"
+    }
+  },
+  "Profile": {
+    "website": "网址",
+    "button_follow": "关注",
+    "button_unfollow": "取消关注",
+    "button_following": "正在关注",
+    "fans": "粉丝",
+    "following": "正在关注",
+    "create_link": "创建",
+    "edit_link": "编辑"
+  },
+  "Modal": {
+    "button_confirm": "确认",
+    "button_cancel": "关闭",
+    "CancelShareModal": {
+      "title": "共享者列表",
+      "identity": "当前身份",
+      "input_placeholder": "输入被邀请人的ID"
+    },
+    "CreateBoxModal": {
+      "title_1": "创建数据盒子",
+      "title_2": "更新盒子信息",
+      "avatar": "头像",
+      "name": "名字",
+      "private": "私有",
+      "input_placeholder": "给盒子一个帅气的名字"
+    },
+    "Burn": {
+      "title": "销毁OG徽章",
+      "item_title": "将销毁后的2 ICP转给:",
+      "placeholder": "请输入account ID"
+    },
+    "CreateProfileWebsiteModal": {
+      "title_1": "创建",
+      "title_2": "编辑",
+      "item_1_0": "图像",
+      "item_1_1": "头像",
+      "item_2_0": "网站链接",
+      "item_2_1": "名字",
+      "item_3_0": "活动名称",
+      "item_3_1": "个性签名"
+    },
+    "DeleteBoxModal": {
+      "title": "删除盒子",
+      "cycles_to": "余额转给",
+      "input_placeholder": "罐子 ID",
+      "error": "罐子不存在"
+    },
+    "EditProfileWebsiteModal": {
+      "title": "编辑",
+      "link_img": "图像",
+      "link_url": "网站链接",
+      "link_name": "链接标题"
+    },
+    "SelectBoxModal": {
+      "title": "选择盒子",
+      "input_placeholder": "请选择盒子存储此文件",
+      "input_placeholder_2": "请选择盒子接收剩余的cycles"
+    },
+    "SharedModal": {
+      "title": "分享给",
+      "who": "对方",
+      "remark": "备注",
+      "input_placeholder_1": "输入UserID或者是principal",
+      "input_placeholder_2": "写点描述吧...",
+      "error": "用户不存在"
+    },
+    "TopUpModal": {
+      "title": "充值",
+      "token": "代币类型",
+      "account": "账户",
+      "tip": "请往这个账户充值足够的icp",
+      "amount": "金额",
+      "balance": "你的余额"
+    },
+    "TransferModal": {
+      "title": "转移盒子",
+      "to": "对象",
+      "input_placeholder": "请输入UserID或者principal",
+      "error": "用户不存在"
+    },
+    "UploadModal": {
+      "title": "上传",
+      "wallet": "钱包",
+      "file_type": "文件类型",
+      "encrypt": "加密",
+      "plain": "明文",
+      "token": "代币",
+      "store_location": "存储位置",
+      "permission": "权限",
+      "private": "私有",
+      "public": "公开",
+      "upload": "上传文件",
+      "drop": "点击或者拖拽上传....",
+      "tip_0": "请选择一个文件",
+      "tip_1": "单次上传不能超过300M",
+      "tip_2": "单次上传不能超过100M",
+      "tip_3": "余额不足，请前往deposit页面进行充值"
+    }
+  }
+}

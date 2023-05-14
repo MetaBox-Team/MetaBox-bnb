@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changelog</title>
+  </head>
+  <body>
+    <h1>Agent-JS Changelog</h1>
+
+    <section>
+      <h2>Version 0.13.1</h2>
+      <ul>
+        <li>fixes a bug with the localstorage migration strategy</li>
+      </ul>
+      <h2>Version 0.13.0</h2>
+      <ul>
+        <li>
+          AuthClient now uses IndexedDb by default. To use localStorage, import LocalStorage
+          provider and pass it during AuthClient.create().
+        </li>
+        <ul>
+          <li>Also offers a generic Indexed Db keyval store, IdbKeyVal</li>
+        </ul>
+        <li>AuthClient migrates gracefully from localstorage to IDB when upgrading</li>
+      </ul>
+      <h2>Version 0.12.2</h2>
+      <ul>
+        <li>
+          Support for the SubtleCrypto interface in @dfinity/identity using the new ECDSAKeyIdentity
+        </li>
+        <li>CanisterStatus no longer suppresses rootKey errors</li>
+        <li>Readme's point to https://agent-js.icp.xyz</li>
+      </ul>
+      <h2>Version 0.12.1</h2>
+      <ul>
+        <li>Adds inline sourcemaps to packages</li>
+        <li>
+          Pulls lint out to a separate job now that Node 12 is failing with latest eslint
+          dependencies
+        </li>
+        <li>Adds UTF-8 as an encoding option for CanisterStatus custom paths</li>
+        <li>
+          Adds a public method "createReadStateRequest" that creates the request for "readState".
+        </li>
+        <li>
+          Add an extra parameter to "readState" to pass a created request. If this parameter is
+          passed, the method does the request directly without creating a new one.
+        </li>
+        <li>
+          Use the "createReadStateRequest" and the extra parameter when polling for the response to
+          avoid signing requests during polling.
+        </li>
+        <li>
+          Adds derivationOrigin to auth-client login to support the ability to login using the
+          identity derived from a different origin. See
+          <a
+            href="https://github.com/dfinity/internet-identity/pull/724/files#diff-44c106928503ccfb1b3f09f02513578552f66b68dea01c5ec4bd2de858bbba1a"
+            >proposed changes</a
+          >
+        </li>
+      </ul>
+      <h2>Version 0.12.0</h2>
+      <ul>
+        <li>
+          Changed the certificate verification interface and fixed its logic. The public constructor
+          is now static and asynchronous. There is no separate verification method, the check is
+          done automatically in the constructor and newly also checks that the delegation is
+          authoritative for the given canister ID, as required by the Internet Computer interface
+          specification.
+        </li>
+      </ul>
+      <h2>Version 0.11.2</h2>
+      <ul>
+        <li>
+          Adds a default callback to the IdleManager that will refresh the page after clearing the
+          storage
+        </li>
+        <li>
+          Adds a new utility method,
+          <pre>canisterStatus</pre>
+          , to @agent/js. Canister status now allows you to query paths from the canister
+          certificate with a simple interface, using the API from the<a
+            href="https://smartcontracts.org/docs/current/references/ic-interface-spec#state-tree-canister-information"
+            >interface specification</a
+          ><br />
+          Comes with nicely configured options for
+          <pre>time</pre>
+          ,
+          <pre>controllers</pre>
+          ,
+          <pre>subnet</pre>
+          ,
+          <pre>module_hash</pre>
+          , and
+          <pre>candid</pre>
+          . Additionally, has a utility for reading custom MetaData set using
+          <a href="https://github.com/dfinity/ic-wasm">ic-wasm</a>, as well as generic custom paths
+          in the format of ArrayBuffers.
+        </li>
+        <li>updates to package.json files for metadata in npm</li>
+      </ul>
+      <h2>Version 0.11.1</h2>
+      <ul>
+        <li>Fix for a corner case that could lead to incorrect decoding of record types.</li>
+      </ul>
+      <h2>Version 0.11.0</h2>
+      <ul>
+        <li>
+          makeNonce now returns unique values. Previously only the first byte of the nonce was
+          populated.
+        </li>
+        <li>
+          Introduces IdleManager to the auth-client. You can now use it to detect when the user has
+          been idle for a configurable amount of time, and then to register callbacks for the sake
+          of logging the user out and prompting re-authentication. See the @dfinity/auth-client
+          Readme for more details
+        </li>
+        <li>Reduces the maxTimeToLive default setting from 24 hours to 8</li>
+        <li>
+          Versioning tool now sets patch version to 0 for minor version updates, or patch and minor
+          versions to 0 for major version updates
+        </li>
+        <li>Removes jest-expect-message, which was making test error messages less useful</li>
+        <li>
+          <p>
+            HttpAgent now generates a nonce to ensure that calls are unique by default. If you want
+            to opt out or provide your own nonce logic, you can now pass an option of
+            <code>disableNonce: true</code>during the agent initialization.
+          </p>
+          <p>
+            If you are currently using
+            <code>agent.addTransform(makeNonceTransform())</code>
+            , please note that you should remove that logic, or add the <code>disableNonce</code>
+            option to your agent when upgrading.
+          </p>
+        </li>
+      </ul>
+      <h2>Version 0.10.3</h2>
+      <ul>
+        <li>
+          Candid now allows optional records to be omitted. See
+          https://github.com/dfinity/agent-js/issues/524
+        </li>
+        <li>
+          In auth-client, login onSuccess callback and onError callback now supports async pattern.
+        </li>
+        <li>
+          Updates npm dependencies to resolve warnings for typedoc and node-fetch. No runtime
+          dependencies were affected.
+        </li>
+      </ul>
+      <h2>Version 0.10.2</h2>
+      <ul>
+        <li>
+          Security enhancement - adds a rewrite for urls to subdomains of
+          <pre>*.ic0.app/api</pre>
+          to
+          <pre>ic0.app/api</pre>
+        </li>
+        <li>Improves error messages for when HttpAgent cannot infer fetch implementation</li>
+      </ul>
+      <h2>Version 0.10.1</h2>
+      <ul>
+        <li>
+          Fix for the auth-client identity option and added JSDOC comment for the timeToLive option
+        </li>
+        <li>
+          Sets the default Internet Identity expiration to 1 day for the authClient, up from 15
+          minutes
+        </li>
+        <li>
+          No longer checks instanceof Principal in @dfinity/agent, which should allow non-identical
+          versions of packages to interoperate, as long as they share the same API
+        </li>
+      </ul>
+      <h2>Version 0.10.0</h2>
+      <ul>
+        <li>Adds changelog for agent-js packages</li>
+        <li>
+          Buffer and Pipe refactor
+          <ul>
+            <li>
+              In previous versions of dfinity packages, we relied on Buffer, a polyfilled version of
+              the Node.js Buffer utility. In a significant refactor, we have removed all cases of
+              this, along with Pipe and the nonstandard Blob packages, in favor of ArrayBuffer,
+              Uint8Array, and DataView
+            </li>
+            <li>Utility methods such as <code>blobToUint8Array</code> have been removed.</li>
+            <li>
+              Interfaces that relied on Buffer and related packages have been updated to accept
+              ArrayBuffer, and the type interfaces are updated to reflect this
+            </li>
+          </ul>
+        </li>
+        <li>
+          Secp256k1 Support
+          <ul>
+            <li>
+              Adds two new exports to @dfinity/identity - Secp256k1KeyIdentity and
+              Secp256k1PublicKey
+            </li>
+            <li>
+              API mirrors the ed25519 components, and relies on the
+              <a href="https://www.npmjs.com/package/secp256k1">secp256k1</a> npm package for
+              signing and verification.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
